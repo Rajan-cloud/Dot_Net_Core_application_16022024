@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Dot_Net_Core_application_16022024.Models.RR_table>
+
+@{
+    ViewData["Title"] = "Show";
+}
+
+<h5>All Data </h5>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-responsive">
+    <thead>
+        <tr class="table table-hover" style="background-color:darkturquoise;height:50px; font-size:medium">
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.rid" class="btn btn-danger">Delete</a> |
+                <a asp-action="add" asp-route-id="@item.rid" class="btn btn-secondary">Edit</a> 
+               @* <a asp-action="Details" asp-route-id="@item.rid">Details</a> |*@
+               
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

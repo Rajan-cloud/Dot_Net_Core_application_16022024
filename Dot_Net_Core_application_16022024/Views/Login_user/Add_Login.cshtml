@@ -1,0 +1,51 @@
+﻿@model Dot_Net_Core_application_16022024.Models.RRtbale1
+
+@{
+    ViewData["Title"] = "Add_Login";
+}
+
+@*<h1 class="text-center">Add_Login</h1>
+*@
+<hr />
+<div class="row">
+    <div class="col-lg-12">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-md-6 shadow-sm p-5 bg-info" style="border-radius:40px;">
+                <form asp-action="Add_Login">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <h4 class="text-center my-4 text-black fw-bold">Login Page </h4>
+                    <div class="form-group my-3">
+                        <label asp-for="Email" class="control-label my-2 text-white fw-bold"></label>
+                        <input asp-for="Email" class="form-control shadow-sm rounded-pill border border-0" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group my-3">
+                        <label asp-for="password" class="control-label my-2 text-white fw-bold"></label>
+                        <input asp-for="password" class="form-control shadow-sm rounded-pill border border-0" />
+                        <span asp-validation-for="password" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group d-flex align-items-center justify-content-center my-4">
+                        <input type="submit" value="Login" class="btn btn-info bg-white rounded-pill px-3 text-dark py-1 border border-0" />
+
+                    </div>
+
+                    <div class="form-group">
+                        @if (ViewBag.msg != null)
+                        {
+                            <span style="color:red">@ViewBag.msg</span>
+                        }
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Add_Login">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
